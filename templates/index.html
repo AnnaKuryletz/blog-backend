@@ -49,9 +49,10 @@
     <!--================ Start Blog Post Area =================-->
     <section class="blog-post-area section-margin mt-4">
         <div class="container">
-            {% for post in fresh_posts %}
-                <div class="row">
-                    <div class="col-lg-8">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    {% for post in fresh_posts %}
                         <div class="single-recent-blog-post">
                             <div class="thumb">
                                 <img class="img-fluid" src="{% if post.image_url %}{{ post.image_url }}{% else %}{% static 'img/banner/blog.png' %}{% endif %}" alt="blog">
@@ -67,56 +68,52 @@
                                 <a class="button" href="{% url 'post_detail' slug=post.slug %}">Read More <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
-                    </div>
-                </div>
-            {% empty %}
-                <div>No posts available</div>
-            {% endfor %}
+                    {% empty %}
+                        <div>No posts available</div>
+                    {% endfor %}
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <nav class="blog-pagination justify-content-center d-flex">
+                    <nav class="blog-pagination justify-content-center d-flex mt-4">
                         <ul class="pagination">
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">
-                                        <i class="ti-angle-left"></i>
-                                    </span>
+                                    <span aria-hidden="true"><i class="ti-angle-left"></i></span>
                                 </a>
                             </li>
                             <li class="page-item active"><a href="#" class="page-link">1</a></li>
                             <li class="page-item"><a href="#" class="page-link">2</a></li>
                             <li class="page-item">
                                 <a href="#" class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">
-                                        <i class="ti-angle-right"></i>
-                                    </span>
+                                    <span aria-hidden="true"><i class="ti-angle-right"></i></span>
                                 </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
-            </div>
 
-            <!-- Start Blog Post Sidebar -->
-            <div class="col-lg-4 sidebar-widgets">
-                <div class="widget-wrap">
-                    <div class="single-sidebar-widget newsletter-widget">
-                        <h4 class="single-sidebar-widget__title">Newsletter</h4>
-                        <div class="form-group mt-30">
-                            <div class="col-autos">
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="widget-wrap">
+                        <!-- Newsletter Widget -->
+                        <div class="single-sidebar-widget newsletter-widget">
+                            <h4 class="single-sidebar-widget__title">Newsletter</h4>
+                            <div class="form-group mt-30">
+                                <div class="col-autos">
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                                </div>
                             </div>
+                            <button class="bbtns d-block mt-20 w-100">Subscribe</button>
                         </div>
-                        <button class="bbtns d-block mt-20 w-100">Subscribe</button>
-                    </div>
 
-                    <div class="single-sidebar-widget post-category-widget">
-                        <h4 class="single-sidebar-widget" style="height:200px;">Здесь будет реклама</h4>
+                        <!-- Advertisement Placeholder -->
+                        <div class="single-sidebar-widget post-category-widget">
+                            <h4 class="single-sidebar-widget" style="height:200px; display: flex; align-items: center; justify-content: center;">
+                                Здесь будет реклама
+                            </h4>
+                        </div>
                     </div>
                 </div>
+                <!-- End Sidebar -->
             </div>
-            <!-- End Blog Post Sidebar -->
         </div>
     </section>
     <!--================ End Blog Post Area =================-->
